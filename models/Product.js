@@ -23,18 +23,22 @@ Product.init(
     price: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-      type: DataTypes.BOOLEAN
+      validate: {
+        isDecimal: true
+      }
     },
     stock: {
       type: DataTypes.INTEGER,
       allowNull: false,
       defaultValue: 10,
-      type: DataTypes.BOOLEAN
+      validate: {
+        isNumeric: true
+      }
     },
     category_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: Category,
+        model: 'category',
         key: 'id'
       }
     }
